@@ -1,3 +1,5 @@
+package calc;
+
 import java.util.Scanner;
 
 //계산기-try, catch문으로 정수, 연산자 입력 받을 때 다른 거 넣으면 예외처리

@@ -1,3 +1,5 @@
+package calc;
+
 import java.util.Scanner;
 
 //계산기-함수 만들어서 계산

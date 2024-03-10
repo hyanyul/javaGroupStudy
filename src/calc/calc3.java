@@ -1,3 +1,5 @@
+package calc;
+
 import java.util.Scanner;
 
 //계산기-while문 사용해서 종료 옵션 추가
