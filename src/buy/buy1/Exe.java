@@ -2,7 +2,7 @@ package buy.buy1;
 
 public class Exe {
     public static void main(String[] args) {
-        
+
         //회원 등록
         Customer c1 = new Customer(1, "한성지", 24, new Product[10]);   //생성자 통해 c1 객체 생성
         Customer c2 = new Customer(2, "홍길동", 25, new Product[10]);
