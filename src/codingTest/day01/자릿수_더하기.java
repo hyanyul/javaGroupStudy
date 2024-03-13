@@ -1,7 +1,7 @@
 package codingTest.day01;
 
 public class 자릿수_더하기 {
-    public static int solution4(int n) {
+    public static int solution(int n) {
         int answer = 0;
 
         String sN = n +"";
@@ -13,6 +13,6 @@ public class 자릿수_더하기 {
         return answer;
     }
     public static void main(String[] args) {
-        System.out.println(solution4(1234));
+        System.out.println(solution(1234));
     }
 }

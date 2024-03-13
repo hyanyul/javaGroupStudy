@@ -3,7 +3,7 @@ package codingTest.day01;
 import java.util.Arrays;
 
 public class 삼각형의_완성조건_1 {
-    public static int solution3(int[] sides) {
+    public static int solution(int[] sides) {
         int answer = 2;
 
         Arrays.sort(sides);
@@ -16,6 +16,6 @@ public class 삼각형의_완성조건_1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(solution3(new int[]{199, 72, 222}));
+        System.out.println(solution(new int[]{199, 72, 222}));
     }
 }
