@@ -2,25 +2,18 @@ package codingTest.day03;
 
 public class 구슬을_나누는_경우의_수 {
     public static int solution(int balls, int share) {
-        long a = 1;  //n!
-        long b = 1;  //m!
-        long c = 1;  //(n-m)!
+        //for문 사용 시 연산 중 값이 커지면 값이 제대로 저장 안되는 문제 발생
+        //재귀함수 사용 필요
+        return combination(balls, share);
+    }
 
-        for(int i=balls; i>0; i--){
-            a *= i; //n!
+    public static int combination(int balls, int share) {
+        // nCr = (n-1)Cr + (n-1)C(r-1) 이용
+        if (balls == share || share == 0) {   //balls가 share와 같거나 share가 0일 경우 경우의 수는 1개이므로 1 리턴
+            return 1;
+        } else {
+            return combination(balls - 1, share) + combination(balls - 1, share - 1);
         }
-
-        for(int i=share; i>0; i--){
-            b *= i; //m!
-        }
-
-        for(int i=balls-share; i>0; i--){
-            c *= i; //(n-m)!
-        }
-
-        int answer = (int)(a / (b * c));
-
-        return answer;
     }
 
     public static void main(String[] args) {
