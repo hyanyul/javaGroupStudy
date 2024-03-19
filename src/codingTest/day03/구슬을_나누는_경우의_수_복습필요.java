@@ -1,6 +1,6 @@
 package codingTest.day03;
 
-public class 구슬을_나누는_경우의_수 {
+public class 구슬을_나누는_경우의_수_복습필요 {
     public static int solution(int balls, int share) {
         //for문 사용 시 연산 중 값이 커지면 값이 제대로 저장 안되는 문제 발생
         //재귀함수 사용 필요
