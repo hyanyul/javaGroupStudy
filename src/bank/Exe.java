@@ -22,19 +22,20 @@ public class Exe {
             throw new RuntimeException(e);
         }
 
-        while (true){
+        while (true) {
             System.out.println("""
                     ---<메뉴>---
                     1. 계좌개설
-                    2. 입금
-                    3. 출금
-                    4. 잔액조회
-                    5. 종료""");
+                    2. 계좌조회
+                    3. 입금
+                    4. 출금
+                    5. 잔액조회
+                    6. 종료""");
             System.out.print("원하시는 메뉴의 번호를 입력해주세요: ");
             int choice = sc.nextInt();
             sc.nextLine();
 
-            if(choice == 1){
+            if (choice == 1) {
                 System.out.print("[계좌개설] 1. 이름을 입력하세요: ");
                 name = sc.nextLine();
                 System.out.print("[계좌개설] 2. 주민등록번호 13자리를 입력하세요: ");
@@ -45,15 +46,16 @@ public class Exe {
                 password = sc.nextInt();
                 sc.nextLine();
 
-                accountCreate(name, ssn, account, password, balance);
-
+                accountArr.add(accountCreate(name, ssn, account, password, balance));
             } else if (choice == 2) {
 
             } else if (choice == 3) {
 
             } else if (choice == 4) {
 
-            } else if (choice == 5) {
+            } else if(choice == 5) {
+
+            } else if (choice == 6) {
                 System.out.println("시스템을 종료합니다.");
                 break;
             }
@@ -65,9 +67,14 @@ public class Exe {
 
     }
 
-    public static void accountCreate(String name, String ssn, String account, int password, int balance){   //계좌개설
+    public static void inputAccount(){
+
+    }
+
+    public static Account accountCreate(String name, String ssn, String account, int password, int balance){   //계좌개설
         Account a = new Account(name, ssn, account,password, balance);
         a.accountInfo();
+        return a;
     }
 
 
