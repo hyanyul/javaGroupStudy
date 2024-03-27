@@ -18,7 +18,7 @@ public class Account {
 
     public void accountInfo(){  //계좌개설 확인
         System.out.printf("[계좌개설]'이름: %s, 주민등록번호: %s, 계좌번호: %s, 비밀번호: %d, 입금 금액: %d원' 계좌가 계" +
-                        "설되었습니다.", name, ssn, account, password, balance);
+                        "설되었습니다.\n", name, ssn, account, password, balance);
     }
 
     public void deposit(int money){  //입금
