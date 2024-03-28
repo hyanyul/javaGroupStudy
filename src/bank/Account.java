@@ -8,6 +8,7 @@ public class Account {
     private int password;    //비밀번호
     private int balance;    //잔액
 
+
     Account(String name, String ssn, String account, int password, int balance){  //계좌 개설(생성자)
         this.name = name;
         this.ssn = ssn;
@@ -31,5 +32,10 @@ public class Account {
 
     public void balanceCheck(){  //잔액 조회
         System.out.printf("[잔액조회] %s 계좌의 잔액은 %d원 입니다.", account, balance);
+    }
+
+    public void getAccount(String name, String ssn) {   //계좌번호 조회
+        System.out.printf("[계좌조회] %s님이 요청하신 계좌번호는 %s입니다.\n", name, this.account);
+
     }
 }

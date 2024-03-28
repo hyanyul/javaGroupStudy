@@ -38,7 +38,7 @@ public class Exe {
             if (choice == 1) {
                 System.out.print("[계좌개설] 1. 이름을 입력하세요: ");
                 name = sc.nextLine();
-                System.out.print("[계좌개설] 2. 주민등록번호 13자리를 입력하세요: ");
+                System.out.print("[계좌개설] 2. 주민등록번호('-' 포함)를 입력하세요: ");
                 ssn = sc.nextLine();
                 System.out.print("[계좌개설] 3. 원하는 계좌번호를 입력하세요: ");
                 account = sc.nextLine();
@@ -47,7 +47,15 @@ public class Exe {
                 sc.nextLine();
 
                 accountArr.add(accountCreate(name, ssn, account, password, balance));
+
+
             } else if (choice == 2) {
+                System.out.print("[계좌조회] 1. 이름을 입력하세요: ");
+                String searchName = sc.nextLine();
+                System.out.print("[계좌조회] 2. 주민등록번호('-' 포함)를 입력하세요: ");
+                String searchAccount = sc.nextLine();
+
+                
 
             } else if (choice == 3) {
 
