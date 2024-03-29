@@ -48,7 +48,6 @@ public class Exe {
 
                 accountArr.add(accountCreate(name, ssn, account, password, balance));
 
-
             } else if (choice == 2) {
                 System.out.print("[계좌조회] 1. 이름을 입력하세요: ");
                 String inputName = sc.nextLine();
@@ -59,7 +58,9 @@ public class Exe {
                     String searchName = accountArr.get(i).getName();
                     String searchSsn = accountArr.get(i).getSsn();
                     if(inputName.equals(searchName) && inputSsn.equals(searchSsn)){
-
+                        accountArr.get(i).getAccount();
+                    } else{
+                        System.out.println("입력한 정보와 일치하는 계좌가 존재하지 않습니다.");
                     }
                 }
 
