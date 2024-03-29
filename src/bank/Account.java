@@ -17,6 +17,26 @@ public class Account {
         this.balance = balance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
     public void accountInfo(){  //계좌개설 확인
         System.out.printf("[계좌개설]'이름: %s, 주민등록번호: %s, 계좌번호: %s, 비밀번호: %d, 입금 금액: %d원' 계좌가 계" +
                         "설되었습니다.\n", name, ssn, account, password, balance);
@@ -28,10 +48,6 @@ public class Account {
 
     public void withdraw(int money){ //출금
         balance -= money;
-    }
-
-    public void balanceCheck(){  //잔액 조회
-        System.out.printf("[잔액조회] %s 계좌의 잔액은 %d원 입니다.", account, balance);
     }
 
     public void getAccount(String name, String ssn) {   //계좌번호 조회

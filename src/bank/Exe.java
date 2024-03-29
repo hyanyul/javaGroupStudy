@@ -51,11 +51,17 @@ public class Exe {
 
             } else if (choice == 2) {
                 System.out.print("[계좌조회] 1. 이름을 입력하세요: ");
-                String searchName = sc.nextLine();
+                String inputName = sc.nextLine();
                 System.out.print("[계좌조회] 2. 주민등록번호('-' 포함)를 입력하세요: ");
-                String searchAccount = sc.nextLine();
+                String inputSsn = sc.nextLine();
 
-                
+                for(int i=0; i<accountArr.size(); i++){
+                    String searchName = accountArr.get(i).getName();
+                    String searchSsn = accountArr.get(i).getSsn();
+                    if(inputName.equals(searchName) && inputSsn.equals(searchSsn)){
+
+                    }
+                }
 
             } else if (choice == 3) {
 
