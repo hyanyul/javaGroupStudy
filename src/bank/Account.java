@@ -33,6 +33,10 @@ public class Account {
         return password;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     public int getBalance() {
         return balance;
     }
@@ -50,8 +54,4 @@ public class Account {
         balance -= money;
     }
 
-    public void getAccount(String name, String ssn) {   //계좌번호 조회
-        System.out.printf("[계좌조회] %s님이 요청하신 계좌번호는 %s입니다.\n", name, this.account);
-
-    }
 }
