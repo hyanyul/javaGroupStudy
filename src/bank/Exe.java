@@ -32,8 +32,15 @@ public class Exe {
                     5. 잔액조회
                     6. 종료""");
             System.out.print("원하시는 메뉴의 번호를 입력해주세요: ");
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice = 0;
+            try {
+                choice = sc.nextInt();
+                sc.nextLine();
+            } catch (InputMismatchException e){
+                sc.nextLine();
+                System.out.println("메뉴를 다시 입력하세요.");
+                continue;
+            }
 
             if (choice == 1) {
                 System.out.print("[계좌개설] 1. 이름을 입력하세요: ");
@@ -78,7 +85,7 @@ public class Exe {
                     int accountBalance = accountArr.get(i).getBalance();
 
                     if (inputAccount.equals(searchAccount) && inputSsn.equals(searchSsn)) {
-                        accountArr.get(i).setBalance(accountBalance + deposit);
+                        accountArr.get(i).deposit(deposit);
                         System.out.printf("%s님의 계좌 %s에 %d원이 입금되었습니다. 잔액은 %d원 입니다.\n", accountArr.get(i).getName(),
                                 searchAccount, deposit, accountArr.get(i).getBalance());
                     }
@@ -101,7 +108,7 @@ public class Exe {
 
                     if (inputAccount.equals(searchAccount) && inputSsn.equals(searchSsn) && inputPassword == searchPassword
                         && accountArr.get(i).getBalance() >= withdraw) {
-                        accountArr.get(i).setBalance(accountBalance - withdraw);
+                        accountArr.get(i).withdraw(withdraw);
                         System.out.printf("%s님의 계좌 %s에 %d원이 출금되었습니다. 잔액은 %d원 입니다.\n", accountArr.get(i).getName(),
                                 searchAccount, withdraw, accountArr.get(i).getBalance());
                     } else if(inputAccount.equals(searchAccount) && inputSsn.equals(searchSsn) && inputPassword == searchPassword
@@ -128,6 +135,8 @@ public class Exe {
             } else if (choice == 6) {
                  System.out.println("시스템을 종료합니다.");
                  break;
+            } else {
+                System.out.println("메뉴를 다시 입력해주세요.");
             }
         }
     }
@@ -137,4 +146,5 @@ public class Exe {
         a.accountInfo();
         return a;
     }
+
 }

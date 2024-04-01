@@ -50,6 +50,7 @@ public class Account {
         balance += money;
     }
 
+
     public void withdraw(int money){ //출금
         balance -= money;
     }
