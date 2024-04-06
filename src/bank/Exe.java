@@ -59,6 +59,10 @@ public class Exe {
 
                     System.out.print("[계좌개설] 3. 원하는 계좌번호를 입력하세요: ");
                     account = sc.nextLine();
+                    int checkAccount = accountInput(account);
+                    if (checkAccount == 0){
+                        continue;
+                    }
 
                     System.out.print("[계좌개설] 4. 비밀번호를 입력하세요(숫자 4자리): ");
                     password = sc.nextLine();
@@ -107,21 +111,24 @@ public class Exe {
                         accountArr.get(i).deposit(deposit);
                         System.out.printf("%s님의 계좌 %s에 %d원이 입금되었습니다. 잔액은 %d원 입니다.\n", accountArr.get(i).getName(),
                                 searchAccount, deposit, accountArr.get(i).getBalance());
+                    } else {
+                        System.out.println("입력한 정보와 일치하는 계좌가 존재하지 않습니다. 다시 입력해주세요.");
                     }
                 }
             } else if (choice == 4) {
                 System.out.print("[출금] 1. 계좌를 입력하세요: ");
                 String inputAccount = sc.nextLine();
-                System.out.print("[출금] 2. 주민등록번호를 입력하세요: ");
+                System.out.print("[출금] 2. 주민등록번호 앞 6자리를 입력하세요: ");
                 String inputSsn = sc.nextLine();
                 System.out.print("[출금] 3. 비밀번호를 입력하세요: ");
                 String inputPassword = sc.nextLine();
                 System.out.print("[출금] 4. 출금할 금액을 입력하세요: ");
                 int withdraw = sc.nextInt();
                 sc.nextLine();
+
                 for (int i = 0; i < accountArr.size(); i++) {
                     String searchAccount = accountArr.get(i).getAccount();
-                    String searchSsn = accountArr.get(i).getSsn();
+                    String searchSsn = accountArr.get(i).getSsn().split("-")[0];
                     String searchPassword = accountArr.get(i).getPassword();
                     int accountBalance = accountArr.get(i).getBalance();
 
@@ -133,6 +140,8 @@ public class Exe {
                     } else if(inputAccount.equals(searchAccount) && inputSsn.equals(searchSsn) && inputPassword.equals(searchPassword)
                             && accountArr.get(i).getBalance() < withdraw){
                         System.out.printf("잔액이 부족합니다. 현재 잔액은 %d원 입니다.\n", accountArr.get(i).getBalance());
+                    } else {
+                        System.out.println("입력한 정보와 일치하는 계좌가 없습니다. 다시 입력해주세요.");
                     }
                 }
             } else if (choice == 5) {
@@ -140,6 +149,7 @@ public class Exe {
                 String accountCheck = sc.nextLine();
                 System.out.print("[잔액조회] 2. 조회하고자 하는 계좌의 비밀번호를 입력하세요: ");
                 String passwordCheck = sc.nextLine();
+
                 for (int i = 0; i < accountArr.size(); i++) {
                     String searchAccount = accountArr.get(i).getAccount();
                     String searchPassword = accountArr.get(i).getPassword();
@@ -167,24 +177,29 @@ public class Exe {
     }
 
     public static int ssnInput(String ssn){
-        if(ssn.length()!=14){
-            System.out.println("'-'를 포함한 14자리로 작성해주세요.");
-            return 0;
-        } else if(!ssn.contains("-") || ssn.indexOf("-")!=6){
-            System.out.println("주민등록번호를 정확하게 입력해주세요.");
+        String check = "^\\d{6}-\\d{7}$";
+        if(!Pattern.matches(check, ssn)){
+            System.out.println("숫자와 '-'만으로 이루어진 14자리로 입력해주세요.");
             return 0;
         }
         return 1;
     }
 
     public static int passwordInput(String pw){
-        if(pw.length()!=4){
-            System.out.println("4자리로 설정해주세요.");
+        String check = "^\\d{4}$";
+        if(!Pattern.matches(check, pw)){
+            System.out.println("4자리의 숫자를 입력해주세요.");
             return 0;
-//        } else if(!Pattern.matches("\\d{4}", pw)){
-//            System.out.println("숫자 4자리로 설정해주세요.");
-//            return 0;
-//        }
+        }
+        return 1;
+    }
+
+    public static int accountInput(String account){
+        String check = "^\\d{3}$";
+        if(!Pattern.matches(check, account)){
+            System.out.println("3자리의 숫자를 입력해주세요.");
+            return 0;
+        }
         return 1;
     }
 }
